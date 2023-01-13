@@ -3,6 +3,7 @@ import {
   Button,
   useColorModeValue,
   Heading,
+  VStack,
   Spacer,
   Text,
   Fade,
@@ -17,8 +18,8 @@ function Start() {
   return (
     <Box
       bg={bg}
-      w="750px"
-      h="750px"
+      w="50vw"
+      h="75vh"
       marginTop="5vh"
       borderRadius="25px"
       display="flex"
@@ -26,14 +27,16 @@ function Start() {
       alignItems="center"
       justifyContent="center"
     >
-      <Heading>Welcome!</Heading>
-      <Text>
-        To get started, click <Button onClick={onToggle}>here.</Button>
-      </Text>
-      <Fade in={isOpen} marginTop='50px'>
-        <Spacer />
-          <StartForm />
-        <Spacer />
+      <Fade in={!isOpen} w="100%" h="100%">
+        <VStack>
+          <Heading>Welcome!</Heading>
+          <Text>
+            To get started, click <Button onClick={onToggle}>here.</Button>
+          </Text>
+        </VStack>
+      </Fade>
+      <Fade in={isOpen} w="100%" h="100%">
+        <StartForm />
       </Fade>
     </Box>
   );
